@@ -2,18 +2,19 @@ package llamacorn;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.*;
 
 @Entity
+//@Table(name="ANIMAL")
 public class Animal {
 
 	@Id
+	//@Column(name="ANIM_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	//@Column(name="CREATION")
 	private Date creation;
+	//@Column(name="NAME")
 	private String name;
 	private String species;
 	private String race;
@@ -30,10 +31,15 @@ public class Animal {
 	private boolean dead;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="OWNER_ID")
+	//@JoinColumn(name="OWNER_ID")
 	private Customer owner;
 
-	
+	 protected Animal() {}
+
+    public Animal(String name) {
+        this.name = name;
+    }
+
 	public Customer getOwner() {
 		return owner;
 	}
@@ -170,6 +176,12 @@ public class Animal {
 		this.dead = dead;
 	}
 	
+    @Override
+    public String toString() {
+        return String.format(
+                "Animal[id=%d, name='%s']",
+                id, name);
+    }
 	
 	
 	

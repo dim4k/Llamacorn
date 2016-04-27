@@ -3,19 +3,20 @@ package llamacorn;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
 import javax.persistence.*;
 
-
 @Entity
+//@Table(name="CUSTOMER")
 public class Customer {
 
 	@Id
-	@Column(name="CUST_ID")
+	//@Column(name="CUST_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private Date creation;
 	private String gender;
-	private String lastname;
+	//@Column(name="NAME")
+	private String firstname;
 	private String name;
 	private String adress;
 	private String zipcode;
@@ -29,8 +30,16 @@ public class Customer {
 	private String clientRef;
 	private String vetRef;
 	
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="owner")
 	private List<Animal> animals;
+	
+	
+    protected Customer() {}
+
+    public Customer(String firstName, String name) {
+        this.name = name;
+        this.firstname = firstName;
+    }
 
 	public void addAnimal(Animal animal){
 		this.animals.add(animal);
@@ -64,11 +73,11 @@ public class Customer {
 	}
 
 	public String getLastname() {
-		return lastname;
+		return firstname;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastname(String firstname) {
+		this.firstname = firstname;
 	}
 
 	public String getName() {
@@ -170,6 +179,13 @@ public class Customer {
 	public List<Animal> getAnimals() {
 		return animals;
 	}
+	
+    @Override
+    public String toString() {
+        return String.format(
+                "Customer[id=%d, firstname='%s', name='%s']",
+                id, firstname, name);
+    }
 	
 	
 }
