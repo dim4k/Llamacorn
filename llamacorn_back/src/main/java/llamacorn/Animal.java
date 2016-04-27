@@ -11,7 +11,7 @@ public class Animal {
 	@Id
 	//@Column(name="ANIM_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 	//@Column(name="CREATION")
 	private Date creation;
 	//@Column(name="NAME")
@@ -30,11 +30,11 @@ public class Animal {
 	private String note;
 	private boolean dead;
 	
+	//@JoinColumn(name="OWNER_ID")	
 	@ManyToOne(fetch=FetchType.LAZY)
-	//@JoinColumn(name="OWNER_ID")
 	private Customer owner;
 
-	 protected Animal() {}
+	protected Animal() {}
 
     public Animal(String name) {
         this.name = name;
@@ -48,7 +48,7 @@ public class Animal {
 		this.owner = owner;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 

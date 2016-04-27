@@ -30,23 +30,32 @@ public class Customer {
 	private String clientRef;
 	private String vetRef;
 	
-	@OneToMany(mappedBy="owner")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="owner")
+	//@JoinColumn(name="OWNER_ID")
 	private List<Animal> animals;
 	
 	
     protected Customer() {}
-
-    public Customer(String firstName, String name) {
-        this.name = name;
-        this.firstname = firstName;
-    }
-
+    
+    
 	public void addAnimal(Animal animal){
 		this.animals.add(animal);
 		if(animal.getOwner()!= this){
 			animal.setOwner(this);
 		}
 	}
+
+
+    public Customer(String firstName, String name) {
+        this.name = name;
+        this.firstname = firstName;
+    }
+
+    public Customer(String firstName, String name, Animal animal) {
+        this.name = name;
+        this.firstname = firstName;
+        this.addAnimal(animal);
+    }
 
 	public long getId() {
 		return id;
