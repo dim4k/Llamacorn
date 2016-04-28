@@ -4,7 +4,7 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-public class FoodBlows {
+public class FoodBowls {
 
 	@Id
 	@Column(name="FOBL_ID")
@@ -13,7 +13,7 @@ public class FoodBlows {
 	private String aliment;
 	private Contributor contributor;
 	
-	public FoodBlows(long id, Date date, String aliment, Contributor contributor) {
+	public FoodBowls(long id, Date date, String aliment, Contributor contributor) {
 		super();
 		this.id = id;
 		this.date = date;
