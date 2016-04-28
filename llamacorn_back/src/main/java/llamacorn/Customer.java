@@ -36,7 +36,7 @@ public class Customer implements Serializable {
 	private String clientRef;
 	private String vetRef;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
 	private Set<Animal> animals = new HashSet<Animal>(0);
 	
     protected Customer() {}
