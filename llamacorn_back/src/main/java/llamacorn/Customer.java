@@ -79,14 +79,6 @@ public class Customer {
 		this.gender = gender;
 	}
 
-	public String getLastname() {
-		return firstname;
-	}
-
-	public void setLastname(String firstname) {
-		this.firstname = firstname;
-	}
-
 	public String getName() {
 		return name;
 	}

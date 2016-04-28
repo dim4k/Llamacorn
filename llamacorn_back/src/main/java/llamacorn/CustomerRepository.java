@@ -10,6 +10,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface CustomerRepository extends PagingAndSortingRepository<Customer, Long> {
 
 	List<Customer> findByName(@Param("name") String name);
-
+	
 }
 
