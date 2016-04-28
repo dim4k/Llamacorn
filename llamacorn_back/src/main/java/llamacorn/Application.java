@@ -24,9 +24,13 @@ public class Application {
 			// save a couple of customers
 			Customer c1 = new Customer("Padow", "Tchekov");		
 			Animal chien = new Animal("Rex");
+			Animal chat = new Animal("Crokette");
+			
 			c1.addAnimal(chien);
+			c1.addAnimal(chat);
 			repository.save(c1);
 			animalrep.save(chien);
+			animalrep.save(chat);
 			
 			repository.save(new Customer("Jack", "Bauer"));
 			//repository.save(new Customer("Jack", "Bauer",chien));
@@ -56,7 +60,7 @@ public class Application {
 			log.info("--------------------------------------------");
 			for (Customer bauer : repository.findByName("Tchekov")) {
 				log.info(bauer.toString());
-				log.info(bauer.animalList());
+				//log.info(bauer.animalList());
 			}
             log.info("");
 		};

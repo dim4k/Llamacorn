@@ -3,6 +3,7 @@ package llamacorn;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -196,12 +197,17 @@ public class Customer {
     @Override
     public String toString() {
         return String.format(
-                "Customer[id=%d, firstname='%s', name='%s']",
-                id, firstname, name);
+                "Customer[id=%d, firstname='%s', name='%s', pets='%s']",
+                id, firstname, name, animalList());
     }
     
     public String animalList(){
-    	return animals.iterator().next().getName();
+    	String listanimals = "";
+		
+		for (Animal s : animals) {
+		    listanimals += s.getName() +"; ";
+		}
+		return listanimals;
     }
 	
 	
