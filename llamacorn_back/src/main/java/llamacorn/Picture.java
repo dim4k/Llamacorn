@@ -1,6 +1,7 @@
 package llamacorn;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -14,7 +15,18 @@ public class Picture {
 	private String title;
 	private String description;
 	private Contributor contributor;
+	
+    @ManyToMany
+    @JoinTable(
+	   name="PICT_KEY",
+	   joinColumns=@JoinColumn(name="PICT_ID", referencedColumnName="PIC_ID"),
+	   inverseJoinColumns=@JoinColumn(name="KEYP_ID", referencedColumnName="KEYP_ID"))
+	private List<KeywordPicture> keyword;
 
+	//@JoinColumn(name="OWNER_ID")	
+	@OneToOne(fetch=FetchType.LAZY, mappedBy="picture")
+	private Delivery delivery;
+		
 	public Picture(long id, Date date, String title, String description, Contributor contributor) {
 		super();
 		this.id = id;
@@ -54,6 +66,14 @@ public class Picture {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Contributor getContributor() {
+		return contributor;
+	}
+
+	public void setContributor(Contributor contributor) {
+		this.contributor = contributor;
 	}
 	
 	

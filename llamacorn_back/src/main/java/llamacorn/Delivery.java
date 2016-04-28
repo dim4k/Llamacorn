@@ -1,6 +1,7 @@
 package llamacorn;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -16,6 +17,15 @@ public class Delivery {
 	private String report;
 	private String recommandations;
 	private Contributor contributor;
+	
+
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="delivery")
+	//@JoinColumn(name="DELI_ID")
+	private List<Requirement> requirements;
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="delivery")
+	//@JoinColumn(name="DELI_ID")
+	private List<Picture> pictures;
 	
 	public Delivery(long id, Date consdate, String motif, String notes, String temperature, String report,
 			String recommandations, Contributor contributor) {
@@ -84,6 +94,14 @@ public class Delivery {
 
 	public void setRecommandations(String recommandations) {
 		this.recommandations = recommandations;
+	}
+
+	public Contributor getContributor() {
+		return contributor;
+	}
+
+	public void setContributor(Contributor contributor) {
+		this.contributor = contributor;
 	}
 	
 	

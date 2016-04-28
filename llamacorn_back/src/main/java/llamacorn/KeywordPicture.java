@@ -1,16 +1,20 @@
 package llamacorn;
 
+import java.util.List;
+
 import javax.persistence.*;
 
-public class Keyword_Picture {
+public class KeywordPicture {
 
 	@Id
 	@Column(name="KEYP_ID")
 	private long id;
 	private String keyword;
 	
+	@ManyToMany(mappedBy="keyword_picture")
+	private List<Picture> pictures;
 	
-	public Keyword_Picture(long id, String keyword) {
+	public KeywordPicture(long id, String keyword) {
 		super();
 		this.id = id;
 		this.keyword = keyword;

@@ -44,6 +44,14 @@ public class FoodBowls {
 	public void setAliment(String aliment) {
 		this.aliment = aliment;
 	}
+
+	public Contributor getContributor() {
+		return contributor;
+	}
+
+	public void setContributor(Contributor contributor) {
+		this.contributor = contributor;
+	}
 	
 	
 	

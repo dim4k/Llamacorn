@@ -12,6 +12,10 @@ public class Requirement {
 	private boolean renouvautor; //????????????????????????????
 	private String vetopharma;
 	private Contributor contributor;
+		
+	//@JoinColumn(name="OWNER_ID")	
+	@OneToOne(fetch=FetchType.LAZY, mappedBy="requirement")
+	private Delivery delivery;
 	
 	public long getId() {
 		return id;
@@ -20,7 +24,22 @@ public class Requirement {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	public boolean isRenouvautor() {
+		return renouvautor;
+	}
 
+	public void setRenouvautor(boolean renouvautor) {
+		this.renouvautor = renouvautor;
+	}
+
+	public Contributor getContributor() {
+		return contributor;
+	}
+
+	public void setContributor(Contributor contributor) {
+		this.contributor = contributor;
+	}
 	public String getSpeciality() {
 		return speciality;
 	}
@@ -36,7 +55,6 @@ public class Requirement {
 	public void setPosology(String posology) {
 		this.posology = posology;
 	}
-
 	
 
 	public String getVetopharma() {
