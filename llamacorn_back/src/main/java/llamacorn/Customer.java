@@ -1,17 +1,13 @@
 package llamacorn;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
 
 @Entity
-//@Table(name="CUSTOMER")
 public class Customer implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -21,7 +17,6 @@ public class Customer implements Serializable {
 	private long id;
 	private Date creation;
 	private String gender;
-	//@Column(name="NAME")
 	private String firstname;
 	private String name;
 	private String adress;
@@ -191,10 +186,6 @@ public class Customer implements Serializable {
 	public void setVetRef(String vetRef) {
 		this.vetRef = vetRef;
 	}
-
-//	public List<Animal> getAnimals() {
-//		return animals;
-//	}
 	
     @Override
     public String toString() {

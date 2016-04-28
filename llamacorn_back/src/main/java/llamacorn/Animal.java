@@ -6,7 +6,6 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-//@Table(name="ANIMAL")
 public class Animal implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -14,15 +13,13 @@ public class Animal implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	//@Column(name="CREATION")
 	private Date creation;
-	//@Column(name="NAME")
 	private String name;
 	private String species;
 	private String race;
 	private String color;
 	private String birthdate;
-	private String certainty;//voir lib java.time
+	private String certainty;
 	private String gender;
 	private boolean sterilization;
 	private int chip;
