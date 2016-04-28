@@ -1,0 +1,14 @@
+llamacorn_back/target/
+llamacorn_back/.project
+llamacorn_back/.settings/
+llamacorn_back/.classpath
+llamacorn_back/.springBeans
+
+llamacorn_front/target/
+llamacorn_front/.project
+llamacorn_front/.settings/
+llamacorn_front/.classpath
+llamacorn_front/.springBeans
+
+.project
+.settings/
