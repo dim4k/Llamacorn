@@ -85,6 +85,14 @@ public class Delivery {
 	public void setRecommandations(String recommandations) {
 		this.recommandations = recommandations;
 	}
+
+	public Contributor getContributor() {
+		return contributor;
+	}
+
+	public void setContributor(Contributor contributor) {
+		this.contributor = contributor;
+	}
 	
 	
 	

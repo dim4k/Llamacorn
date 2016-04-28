@@ -55,6 +55,14 @@ public class Picture {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public Contributor getContributor() {
+		return contributor;
+	}
+
+	public void setContributor(Contributor contributor) {
+		this.contributor = contributor;
+	}
 	
 	
 	

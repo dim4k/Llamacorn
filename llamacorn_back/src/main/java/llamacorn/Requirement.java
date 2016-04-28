@@ -20,7 +20,22 @@ public class Requirement {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	public boolean isRenouvautor() {
+		return renouvautor;
+	}
 
+	public void setRenouvautor(boolean renouvautor) {
+		this.renouvautor = renouvautor;
+	}
+
+	public Contributor getContributor() {
+		return contributor;
+	}
+
+	public void setContributor(Contributor contributor) {
+		this.contributor = contributor;
+	}
 	public String getSpeciality() {
 		return speciality;
 	}
