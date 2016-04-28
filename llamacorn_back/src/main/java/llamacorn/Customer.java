@@ -1,28 +1,22 @@
 package llamacorn;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
 
 @Entity
-//@Table(name="CUSTOMER")
 public class Customer implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	//@Column(name="ANIM_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private Date creation;
 	private String gender;
-	//@Column(name="NAME")
 	private String firstname;
 	private String name;
 	private String adress;
@@ -37,7 +31,7 @@ public class Customer implements Serializable {
 	private String clientRef;
 	private String vetRef;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
 	private Set<Animal> animals = new HashSet<Animal>(0);
 	
     protected Customer() {}
@@ -192,10 +186,6 @@ public class Customer implements Serializable {
 	public void setVetRef(String vetRef) {
 		this.vetRef = vetRef;
 	}
-
-//	public List<Animal> getAnimals() {
-//		return animals;
-//	}
 	
     @Override
     public String toString() {

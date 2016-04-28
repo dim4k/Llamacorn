@@ -4,10 +4,11 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+@Entity
 public class Weight {
 
 	@Id
-	@Column(name="WEIG_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private Date date;
 	private int weight;

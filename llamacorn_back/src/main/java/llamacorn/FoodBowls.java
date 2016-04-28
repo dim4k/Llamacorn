@@ -4,21 +4,20 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+@Entity
 public class FoodBowls {
 
 	@Id
-	@Column(name="FOBL_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private Date date;
 	private String aliment;
-	private Contributor contributor;
 	
-	public FoodBowls(long id, Date date, String aliment, Contributor contributor) {
+	public FoodBowls(long id, Date date, String aliment) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.aliment = aliment;
-		this.contributor = contributor;
 	}
 
 	public long getId() {
@@ -43,14 +42,6 @@ public class FoodBowls {
 
 	public void setAliment(String aliment) {
 		this.aliment = aliment;
-	}
-
-	public Contributor getContributor() {
-		return contributor;
-	}
-
-	public void setContributor(Contributor contributor) {
-		this.contributor = contributor;
 	}
 	
 	

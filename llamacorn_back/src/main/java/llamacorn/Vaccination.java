@@ -4,12 +4,12 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+@Entity
 public class Vaccination {
 	
 	@Id
-	@Column(name="VACC_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private Contributor contributor;
 	private Date datevacc;
 	private String vaccin;
 	private String notes;
@@ -19,18 +19,16 @@ public class Vaccination {
 	private String type;
 	private String labo;
 	private String cerfa1; //première injection du vaccin
-	private Contributor contributor1;
 	private Date date1;
 	private String type1;
 	private String lot;
 	
 	
-	public Vaccination(long id, Contributor contributor, Date datevacc, String vaccin, String notes, String temperature,
-			String consvacc, String cerfa, String type, String labo, String cerfa1, Contributor contributor1,
+	public Vaccination(long id, Date datevacc, String vaccin, String notes, String temperature,
+			String consvacc, String cerfa, String type, String labo, String cerfa1,
 			Date date1, String type1, String lot) {
 		super();
 		this.id = id;
-		this.contributor = contributor;
 		this.datevacc = datevacc;
 		this.vaccin = vaccin;
 		this.notes = notes;
@@ -40,7 +38,6 @@ public class Vaccination {
 		this.type = type;
 		this.labo = labo;
 		this.cerfa1 = cerfa1;
-		this.contributor1 = contributor1;
 		this.date1 = date1;
 		this.type1 = type1;
 		this.lot = lot;
@@ -51,12 +48,6 @@ public class Vaccination {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public Contributor getContributor() {
-		return contributor;
-	}
-	public void setContributor(Contributor contributor) {
-		this.contributor = contributor;
 	}
 	public Date getDatevacc() {
 		return datevacc;
@@ -111,12 +102,6 @@ public class Vaccination {
 	}
 	public void setCerfa1(String cerfa1) {
 		this.cerfa1 = cerfa1;
-	}
-	public Contributor getContributor1() {
-		return contributor1;
-	}
-	public void setContributor1(Contributor contributor1) {
-		this.contributor1 = contributor1;
 	}
 	public Date getDate1() {
 		return date1;

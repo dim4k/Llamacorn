@@ -1,22 +1,18 @@
 package llamacorn;
 
 import javax.persistence.*;
-
+@Entity
 public class Requirement {
 	
 	@Id
-	@Column(name="REQ_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String speciality;
 	private String posology;
 	private boolean renouvautor; //????????????????????????????
 	private String vetopharma;
-	private Contributor contributor;
-		
-	//@JoinColumn(name="OWNER_ID")	
-	@OneToOne(fetch=FetchType.LAZY, mappedBy="requirement")
-	private Delivery delivery;
-	
+
+
 	public long getId() {
 		return id;
 	}
@@ -33,13 +29,6 @@ public class Requirement {
 		this.renouvautor = renouvautor;
 	}
 
-	public Contributor getContributor() {
-		return contributor;
-	}
-
-	public void setContributor(Contributor contributor) {
-		this.contributor = contributor;
-	}
 	public String getSpeciality() {
 		return speciality;
 	}
