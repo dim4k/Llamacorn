@@ -38,6 +38,9 @@ public class Customer implements Serializable {
     
     public void addAnimal(Animal animal){
     	animals.add(animal);
+    	if(animal.getOwner() != this){
+    		animal.setOwner(this);
+    	}
     }
     
     public Set<Animal> getAnimals(){
@@ -48,8 +51,13 @@ public class Customer implements Serializable {
         this.name = name;
         this.firstname = firstName;
     }
-
-
+    
+    public Customer(String firstName, String name, Animal animal) {
+        this.name = name;
+        this.firstname = firstName;
+        this.addAnimal(animal);
+    }
+    
 	public long getId() {
 		return id;
 	}
