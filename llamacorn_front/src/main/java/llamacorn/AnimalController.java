@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @EnableAutoConfiguration
-public class CustomerController {
+public class AnimalController {
 	
     
-    @RequestMapping(value = "/customer")
+    @RequestMapping(value = "/animal")
     
     public String customer(Model model) {
 
        
-        model.addAttribute("listCustomer", "name");
-        return "customer";
+        model.addAttribute("listAnimal", "name");
+        return "animal";
     }
   
 }
