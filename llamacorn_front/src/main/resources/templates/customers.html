@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Veto-Squad</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<tr>
+			<th>NAME</th>
+		</tr>
+		<tr th:each="customer : ${customers}">
+			<td th:text="${customer.name}">Name</td>
+		</tr>
+	</table>
+</body>
+</html>

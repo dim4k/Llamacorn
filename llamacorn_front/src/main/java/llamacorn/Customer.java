@@ -155,9 +155,6 @@ public class Customer {
 	
     @Override
     public String toString() {
-        return "Quote{" +
-                "type='" + name + '\'' +
-                ", value=" + firstname +
-                '}';
+        return firstname + " " + name ;
     }
 }
