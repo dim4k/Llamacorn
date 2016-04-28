@@ -1,12 +1,15 @@
 package llamacorn;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
 
 @Entity
 //@Table(name="ANIMAL")
-public class Animal {
+public class Animal implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	//@Column(name="ANIM_ID")
@@ -30,29 +33,34 @@ public class Animal {
 	private String note;
 	private boolean dead;
 	
-	//@JoinColumn(name="OWNER_ID")	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(optional = false)
 	private Customer owner;
 
 	protected Animal() {}
 
-    public Animal(String name) {
+    public Animal(String name, Customer owner) {
         this.name = name;
+        this.owner = owner;
+    }
+    
+    public Customer getOwner() {
+		return this.owner;
+	}
+    
+    public void setOwner(Customer customer) {
+        this.owner = customer;
+        if (!customer.getAnimals().contains(this)) { // warning this may cause performance issues if you have a large data set since this operation is O(n)
+        customer.getAnimals().add(this);
+        }
     }
 
-	public Customer getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Customer owner) {
-		this.owner = owner;
-	}
+    
 
 	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

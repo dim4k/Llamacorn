@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+
 @SpringBootApplication  
 public class Application {
 
@@ -21,8 +22,11 @@ public class Application {
 	public CommandLineRunner demo(CustomerRepository repository, AnimalRepository animalrep) {
 		return (args) -> {
 			// save a couple of customers
-			Animal chien = new Animal("Rex");
+			Customer c1 = new Customer("Padow", "Tchekov");
+			repository.save(c1);
+			Animal chien = new Animal("Rex", c1);
 			animalrep.save(chien);
+			
 			repository.save(new Customer("Jack", "Bauer"));
 			//repository.save(new Customer("Jack", "Bauer",chien));
 			
@@ -35,18 +39,21 @@ public class Application {
             log.info("");
             
             Animal chien1 = animalrep.findOne(1L);
-			//customer.getAnimals().toString();
-			log.info("Customer found with findOne(1L):");
+            
+//			//customer.getAnimals().toString();
+//			log.info("Customer found with findOne(1L):");
 			log.info("--------------------------------");
 			log.info(chien1.toString());
-            log.info("");
+			log.info(chien1.getOwner().getFirstname());
+			log.info("--------------------------------");
+//            log.info("");
             
             
 
 			// fetch customers by last name
-			log.info("Customer found with findByLastName('Bauer'):");
+			log.info("Customer found with findByLastName('Tchekov'):");
 			log.info("--------------------------------------------");
-			for (Customer bauer : repository.findByName("Bauer")) {
+			for (Customer bauer : repository.findByName("Tchekov")) {
 				log.info(bauer.toString());
 			}
             log.info("");

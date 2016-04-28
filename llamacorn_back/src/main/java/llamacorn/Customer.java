@@ -1,16 +1,23 @@
 package llamacorn;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
 @Entity
 //@Table(name="CUSTOMER")
-public class Customer {
+public class Customer implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	//@Column(name="CUST_ID")
+	//@Column(name="ANIM_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private Date creation;
@@ -29,33 +36,25 @@ public class Customer {
 	private boolean rlmail;
 	private String clientRef;
 	private String vetRef;
-	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="owner")
-	//@JoinColumn(name="OWNER_ID")
-	private List<Animal> animals;
-	
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
+	private Set<Animal> animals = new HashSet<Animal>(0);
 	
     protected Customer() {}
     
+    public void addAnimal(Animal animal){
+    	animals.add(animal);
+    }
     
-	public void addAnimal(Animal animal){
-		this.animals.add(animal);
-		if(animal.getOwner()!= this){
-			animal.setOwner(this);
-		}
-	}
-
+    public Set<Animal> getAnimals(){
+    	return animals;
+    }
 
     public Customer(String firstName, String name) {
         this.name = name;
         this.firstname = firstName;
     }
 
-    public Customer(String firstName, String name, Animal animal) {
-        this.name = name;
-        this.firstname = firstName;
-        this.addAnimal(animal);
-    }
 
 	public long getId() {
 		return id;
@@ -194,15 +193,15 @@ public class Customer {
 		this.vetRef = vetRef;
 	}
 
-	public List<Animal> getAnimals() {
-		return animals;
-	}
+//	public List<Animal> getAnimals() {
+//		return animals;
+//	}
 	
     @Override
     public String toString() {
         return String.format(
-                "Customer[id=%d, firstname='%s', name='%s']",
-                id, firstname, name);
+                "Customer[id=%d, firstname='%s', name='%s', pet='%s']",
+                id, firstname, name, animals.iterator().next().toString());
     }
 	
 	
