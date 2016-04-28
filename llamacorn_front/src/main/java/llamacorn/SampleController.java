@@ -16,7 +16,4 @@ public class SampleController {
         return "index";
     }
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleController.class, args);
-    }
 }
