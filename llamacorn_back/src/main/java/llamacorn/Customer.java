@@ -25,8 +25,8 @@ public class Customer {
 	private String cellphone;
 	private String mail;
 	private String notes;
-	private Date rlcvacc;
-	private Date rlmail;
+	private boolean rlcvacc;
+	private boolean rlmail;
 	private String clientRef;
 	private String vetRef;
 	
@@ -149,25 +149,34 @@ public class Customer {
 		return notes;
 	}
 
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public boolean isRlcvacc() {
+		return rlcvacc;
+	}
+
+	public void setRlcvacc(boolean rlcvacc) {
+		this.rlcvacc = rlcvacc;
+	}
+
+	public boolean isRlmail() {
+		return rlmail;
+	}
+
+	public void setRlmail(boolean rlmail) {
+		this.rlmail = rlmail;
+	}
+
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
 
-	public Date getRlcvacc() {
-		return rlcvacc;
-	}
-
-	public void setRlcvacc(Date rlcvacc) {
-		this.rlcvacc = rlcvacc;
-	}
-
-	public Date getRlmail() {
-		return rlmail;
-	}
-
-	public void setRlmail(Date rlmail) {
-		this.rlmail = rlmail;
-	}
 
 	public String getClientRef() {
 		return clientRef;

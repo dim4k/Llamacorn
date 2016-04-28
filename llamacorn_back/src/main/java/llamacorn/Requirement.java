@@ -9,18 +9,10 @@ public class Requirement {
 	private long id;
 	private String speciality;
 	private String posology;
-	private String renouvautor; //????????????????????????????
+	private boolean renouvautor; //????????????????????????????
 	private String vetopharma;
+	private Contributor contributor;
 	
-	public Requirement(long id, String speciality, String posology, String renouvautor, String vetopharma) {
-		super();
-		this.id = id;
-		this.speciality = speciality;
-		this.posology = posology;
-		this.renouvautor = renouvautor;
-		this.vetopharma = vetopharma;
-	}
-
 	public long getId() {
 		return id;
 	}
@@ -45,13 +37,7 @@ public class Requirement {
 		this.posology = posology;
 	}
 
-	public String getRenouvautor() {
-		return renouvautor;
-	}
-
-	public void setRenouvautor(String renouvautor) {
-		this.renouvautor = renouvautor;
-	}
+	
 
 	public String getVetopharma() {
 		return vetopharma;

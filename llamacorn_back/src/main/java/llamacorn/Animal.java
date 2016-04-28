@@ -20,7 +20,7 @@ public class Animal {
 	private String race;
 	private String color;
 	private String birthdate;
-	private String certainty;
+	private String certainty;//voir lib java.time
 	private String gender;
 	private boolean sterilization;
 	private int chip;

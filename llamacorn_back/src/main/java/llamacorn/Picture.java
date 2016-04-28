@@ -13,13 +13,15 @@ public class Picture {
 	private Date date;
 	private String title;
 	private String description;
-	
-	public Picture(long id, Date date, String title, String description) {
+	private Contributor contributor;
+
+	public Picture(long id, Date date, String title, String description, Contributor contributor) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.title = title;
 		this.description = description;
+		this.contributor = contributor;
 	}
 
 	public long getId() {

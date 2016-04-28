@@ -11,12 +11,14 @@ public class FoodBlows {
 	private long id;
 	private Date date;
 	private String aliment;
+	private Contributor contributor;
 	
-	public FoodBlows(long id, Date date, String aliment) {
+	public FoodBlows(long id, Date date, String aliment, Contributor contributor) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.aliment = aliment;
+		this.contributor = contributor;
 	}
 
 	public long getId() {

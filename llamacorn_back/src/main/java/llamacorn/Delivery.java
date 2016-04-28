@@ -15,9 +15,10 @@ public class Delivery {
 	private String temperature;
 	private String report;
 	private String recommandations;
+	private Contributor contributor;
 	
 	public Delivery(long id, Date consdate, String motif, String notes, String temperature, String report,
-			String recommandations) {
+			String recommandations, Contributor contributor) {
 		super();
 		this.id = id;
 		this.consdate = consdate;
@@ -26,6 +27,7 @@ public class Delivery {
 		this.temperature = temperature;
 		this.report = report;
 		this.recommandations = recommandations;
+		this.contributor = contributor;
 	}
 
 	public long getId() {
