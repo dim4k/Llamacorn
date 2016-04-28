@@ -22,9 +22,10 @@ public class Application {
 	public CommandLineRunner demo(CustomerRepository repository, AnimalRepository animalrep) {
 		return (args) -> {
 			// save a couple of customers
-			Customer c1 = new Customer("Padow", "Tchekov");
+			Customer c1 = new Customer("Padow", "Tchekov");		
+			Animal chien = new Animal("Rex");
+			c1.addAnimal(chien);
 			repository.save(c1);
-			Animal chien = new Animal("Rex", c1);
 			animalrep.save(chien);
 			
 			repository.save(new Customer("Jack", "Bauer"));
@@ -55,6 +56,7 @@ public class Application {
 			log.info("--------------------------------------------");
 			for (Customer bauer : repository.findByName("Tchekov")) {
 				log.info(bauer.toString());
+				log.info(bauer.animalList());
 			}
             log.info("");
 		};

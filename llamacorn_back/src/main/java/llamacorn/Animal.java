@@ -7,9 +7,7 @@ import javax.persistence.*;
 
 @Entity
 //@Table(name="ANIMAL")
-public class Animal implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
+public class Animal {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,6 +40,11 @@ public class Animal implements Serializable {
         this.owner = owner;
     }
     
+    public Animal(String name) {
+        this.name = name;
+    }
+    
+    
     public Customer getOwner() {
 		return this.owner;
 	}
@@ -49,7 +52,7 @@ public class Animal implements Serializable {
     public void setOwner(Customer customer) {
         this.owner = customer;
         if (!customer.getAnimals().contains(this)) { // warning this may cause performance issues if you have a large data set since this operation is O(n)
-        customer.getAnimals().add(this);
+        	customer.getAnimals().add(this);
         }
     }
 

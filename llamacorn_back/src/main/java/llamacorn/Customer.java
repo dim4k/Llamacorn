@@ -12,10 +12,8 @@ import javax.persistence.*;
 
 @Entity
 //@Table(name="CUSTOMER")
-public class Customer implements Serializable {
+public class Customer {
 	
-	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -36,13 +34,16 @@ public class Customer implements Serializable {
 	private String clientRef;
 	private String vetRef;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
 	private Set<Animal> animals = new HashSet<Animal>(0);
 	
     protected Customer() {}
     
     public void addAnimal(Animal animal){
     	animals.add(animal);
+        if (animal.getOwner() != this) { // warning this may cause performance issues if you have a large data set since this operation is O(n)
+        	animal.setOwner(this);
+        }
     }
     
     public Set<Animal> getAnimals(){
@@ -199,8 +200,12 @@ public class Customer implements Serializable {
     @Override
     public String toString() {
         return String.format(
-                "Customer[id=%d, firstname='%s', name='%s', pet='%s']",
-                id, firstname, name, animals.iterator().next().toString());
+                "Customer[id=%d, firstname='%s', name='%s']",
+                id, firstname, name);
+    }
+    
+    public String animalList(){
+    	return animals.iterator().next().getName();
     }
 	
 	
