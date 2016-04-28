@@ -1,17 +1,13 @@
 package llamacorn;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
 
 @Entity
-//@Table(name="CUSTOMER")
 public class Customer {
 	
 	@Id
@@ -19,7 +15,6 @@ public class Customer {
 	private long id;
 	private Date creation;
 	private String gender;
-	//@Column(name="NAME")
 	private String firstname;
 	private String name;
 	private String adress;
@@ -41,7 +36,7 @@ public class Customer {
     
     public void addAnimal(Animal animal){
     	animals.add(animal);
-        if (animal.getOwner() != this) { // warning this may cause performance issues if you have a large data set since this operation is O(n)
+        if (animal.getOwner() != this) {
         	animal.setOwner(this);
         }
     }
@@ -54,8 +49,13 @@ public class Customer {
         this.name = name;
         this.firstname = firstName;
     }
-
-
+    
+    public Customer(String firstName, String name, Animal animal) {
+        this.name = name;
+        this.firstname = firstName;
+        this.addAnimal(animal);
+    }
+    
 	public long getId() {
 		return id;
 	}
@@ -192,10 +192,6 @@ public class Customer {
 	public void setVetRef(String vetRef) {
 		this.vetRef = vetRef;
 	}
-
-//	public List<Animal> getAnimals() {
-//		return animals;
-//	}
 	
     @Override
     public String toString() {

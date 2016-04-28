@@ -6,21 +6,17 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-//@Table(name="ANIMAL")
 public class Animal {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	//@Column(name="CREATION")
 	private Date creation;
-	//@Column(name="NAME")
 	private String name;
 	private String species;
 	private String race;
 	private String color;
 	private String birthdate;
-	private String certainty;//voir lib java.time
+	private String certainty;
 	private String gender;
 	private boolean sterilization;
 	private int chip;
@@ -51,8 +47,8 @@ public class Animal {
     
     public void setOwner(Customer customer) {
         this.owner = customer;
-        if (!customer.getAnimals().contains(this)) { // warning this may cause performance issues if you have a large data set since this operation is O(n)
-        	customer.getAnimals().add(this);
+        if (!customer.getAnimals().contains(this)) {
+        customer.getAnimals().add(this);
         }
     }
 
