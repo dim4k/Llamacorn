@@ -4,15 +4,14 @@ import java.util.List;
 
 import javax.persistence.*;
 
+@Entity
 public class KeywordPicture {
 
 	@Id
-	@Column(name="KEYP_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String keyword;
 	
-	@ManyToMany(mappedBy="keyword_picture")
-	private List<Picture> pictures;
 	
 	public KeywordPicture(long id, String keyword) {
 		super();

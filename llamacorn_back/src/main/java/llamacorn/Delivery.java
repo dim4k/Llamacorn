@@ -5,10 +5,11 @@ import java.util.List;
 
 import javax.persistence.*;
 
+@Entity
 public class Delivery {
 	
 	@Id
-	@Column(name="DELI_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private Date consdate;
 	private String motif;
@@ -16,19 +17,10 @@ public class Delivery {
 	private String temperature;
 	private String report;
 	private String recommandations;
-	private Contributor contributor;
-	
 
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="delivery")
-	//@JoinColumn(name="DELI_ID")
-	private List<Requirement> requirements;
-	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="delivery")
-	//@JoinColumn(name="DELI_ID")
-	private List<Picture> pictures;
-	
+
 	public Delivery(long id, Date consdate, String motif, String notes, String temperature, String report,
-			String recommandations, Contributor contributor) {
+			String recommandations) {
 		super();
 		this.id = id;
 		this.consdate = consdate;
@@ -37,7 +29,6 @@ public class Delivery {
 		this.temperature = temperature;
 		this.report = report;
 		this.recommandations = recommandations;
-		this.contributor = contributor;
 	}
 
 	public long getId() {
@@ -95,15 +86,6 @@ public class Delivery {
 	public void setRecommandations(String recommandations) {
 		this.recommandations = recommandations;
 	}
-
-	public Contributor getContributor() {
-		return contributor;
-	}
-
-	public void setContributor(Contributor contributor) {
-		this.contributor = contributor;
-	}
-	
 	
 	
 }

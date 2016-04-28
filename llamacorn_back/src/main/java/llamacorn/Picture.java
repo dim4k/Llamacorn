@@ -5,35 +5,23 @@ import java.util.List;
 
 import javax.persistence.*;
 
+@Entity
 public class Picture {
 
 	
 	@Id
-	@Column(name="PIC_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private Date date;
 	private String title;
 	private String description;
-	private Contributor contributor;
-	
-    @ManyToMany
-    @JoinTable(
-	   name="PICT_KEY",
-	   joinColumns=@JoinColumn(name="PICT_ID", referencedColumnName="PIC_ID"),
-	   inverseJoinColumns=@JoinColumn(name="KEYP_ID", referencedColumnName="KEYP_ID"))
-	private List<KeywordPicture> keyword;
 
-	//@JoinColumn(name="OWNER_ID")	
-	@OneToOne(fetch=FetchType.LAZY, mappedBy="picture")
-	private Delivery delivery;
-		
-	public Picture(long id, Date date, String title, String description, Contributor contributor) {
+	public Picture(long id, Date date, String title, String description) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.title = title;
 		this.description = description;
-		this.contributor = contributor;
 	}
 
 	public long getId() {
@@ -67,15 +55,6 @@ public class Picture {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public Contributor getContributor() {
-		return contributor;
-	}
-
-	public void setContributor(Contributor contributor) {
-		this.contributor = contributor;
-	}
-	
 	
 	
 }

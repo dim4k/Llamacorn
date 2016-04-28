@@ -17,7 +17,6 @@ public class Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	//@Column(name="ANIM_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private Date creation;
