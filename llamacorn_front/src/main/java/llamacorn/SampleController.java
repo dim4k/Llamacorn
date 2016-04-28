@@ -1,4 +1,4 @@
-package hello;
+package llamacorn;
 
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
