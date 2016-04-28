@@ -45,7 +45,7 @@ public class Animal implements Serializable {
     
     public void setOwner(Customer customer) {
         this.owner = customer;
-        if (!customer.getAnimals().contains(this)) { // warning this may cause performance issues if you have a large data set since this operation is O(n)
+        if (!customer.getAnimals().contains(this)) {
         customer.getAnimals().add(this);
         }
     }
