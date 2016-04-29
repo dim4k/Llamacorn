@@ -33,7 +33,7 @@ mvn clean install
 Run in /llamacorn_back/target/  :
 
 ```sh
-java -jar Llamacorn_back-0.1.0.jar --server.port=8181
+java -jar Llamacorn_back-0.1.0.jar
 ```
 
 ##### Run the client
@@ -41,7 +41,7 @@ java -jar Llamacorn_back-0.1.0.jar --server.port=8181
 Open a new terminal then run in /llamacorn_front/target/:
 
 ```sh
-java -jar Llamacorn_front-0.1.0.jar
+java -jar Llamacorn_front-0.1.0.jar  --server.port=8181
 ```
 
 ##### Test the application
