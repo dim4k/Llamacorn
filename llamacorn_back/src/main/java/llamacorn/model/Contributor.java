@@ -1,4 +1,4 @@
-package llamacorn;
+package llamacorn.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

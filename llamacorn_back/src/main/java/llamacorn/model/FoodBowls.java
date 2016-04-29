@@ -1,4 +1,4 @@
-package llamacorn;
+package llamacorn.model;
 
 import java.util.Date;
 

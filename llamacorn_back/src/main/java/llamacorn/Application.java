@@ -8,8 +8,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import llamacorn.jpa.AnimalRepository;
+import llamacorn.jpa.CustomerRepository;
+import llamacorn.model.Animal;
+import llamacorn.model.Customer;
 
-@SpringBootApplication  
+
+@SpringBootApplication
 public class Application {
 
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
