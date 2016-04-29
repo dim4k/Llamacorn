@@ -41,11 +41,11 @@ java -jar Llamacorn_back-0.1.0.jar
 Open a new terminal then run in /llamacorn_front/target/:
 
 ```sh
-java -jar Llamacorn_front-0.1.0.jar  --server.port=8181
+java -jar Llamacorn_front-0.1.0.jar --server.port=8181
 ```
 
 ##### Test the application
 
-Open a web browser and go to http://localhost:8080/customer/1 for example.
+Open a web browser and go to http://localhost:8181/customer/1 for example.
 
 
