@@ -90,14 +90,14 @@ public class CustomerController {
         return "customers";
     }
     
-    @RequestMapping(value="/addCustomer", method=RequestMethod.GET)
-    public String greetingForm(Model model) {
+    @RequestMapping(value="/customer/new", method=RequestMethod.GET)
+    public String newCustoForm(Model model) {
         model.addAttribute("customer", new Customer());
         return "addCustomer";
     }
 
-    @RequestMapping(value="/addCustomer", method=RequestMethod.POST)
-    public String greetingSubmit(@ModelAttribute Customer customer, Model model) {
+    @RequestMapping(value="/customer/new", method=RequestMethod.POST)
+    public String newCustoSubmit(@ModelAttribute Customer customer, Model model) {
         //model.addAttribute("customer", customer);
     	
         final String uri = "http://localhost:8080/customers";

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @EnableAutoConfiguration
 public class IndexController {
     
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "/")
     
     public String index(Model model) {
         return "index";
