@@ -2,7 +2,6 @@ package llamacorn;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Set;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -10,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.client.RestTemplate;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
@@ -56,6 +57,7 @@ public class CustomerController {
 	    RestTemplate restTemplate = new RestTemplate();
 	     
 	    HttpHeaders headers = new HttpHeaders();
+	    
 	    headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 	     
 	    ArrayList<Customer> result = restTemplate.getForObject(uri, ArrayList.class);	    
@@ -86,6 +88,28 @@ public class CustomerController {
         model.addAttribute("customers", customers);
         
         return "customers";
+    }
+    
+    @RequestMapping(value="/addCustomer", method=RequestMethod.GET)
+    public String greetingForm(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "addCustomer";
+    }
+
+    @RequestMapping(value="/addCustomer", method=RequestMethod.POST)
+    public String greetingSubmit(@ModelAttribute Customer customer, Model model) {
+        //model.addAttribute("customer", customer);
+    	
+        final String uri = "http://localhost:8080/customers";
+        
+        RestTemplate restTemplate = new RestTemplate();
+        Customer custo = restTemplate.postForObject( uri, customer, Customer.class);
+     
+        System.out.println(custo);
+        
+        model.addAttribute("customer", custo);
+        
+        return "result";
     }
 
 }
