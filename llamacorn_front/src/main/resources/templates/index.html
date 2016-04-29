@@ -1,60 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"></meta>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-    <meta name="description" content=""></meta>
-    <meta name="author" content=""></meta>
+<head>
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<meta name="description" content=""></meta>
+<meta name="author" content=""></meta>
 
-    <title>Starter Template for Bootstrap</title>
+<title>Starter Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
-    
-
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-
-    <div class="container">
-
-      <div class="starter-template">
-	    <h1>Bootstrap starter template</h1>
-		<h3><a href="/customer">Affichage des clients</a></h3>
-		<h3><a href="/animal">Affichage des animaux</a></h3>
-      </div>
-
-    </div><!-- /.container -->
+<!-- Bootstrap core CSS -->
+<link href="//webjar/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+<link href="style.css" rel="stylesheet"></link>
+<script src="/webjarjs"></script>
+<script data-main="js/app" src="/webjar/requirejs/require.min.js"></script>
 
 
-    <!-- Bootstrap core JavaScript
+</head>
+
+<body>
+	<nav>
+		<ul>
+			<li><a class="navigation-lien" href="/" title="titre">Home</a></li>
+			<li><a class="navigation-lien" href="/customer" title="titre">Client</a></li>
+			<li><a class="navigation-lien" href="/animal" title="titre">Animal</a></li>
+			<li style="float: none;"><br style="clear: both;" /></li>
+		</ul>
+	</nav>
+
+	<!-- /.container -->
+
+
+	<!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
 </html>
