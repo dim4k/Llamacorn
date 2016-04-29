@@ -1,10 +1,46 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Getting Started: Handling Form Submission</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<title>Veto Squad</title>
+<!-- Bootstrap Core CSS -->
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+
+<script
+	src="http://cdn.jsdelivr.net/webjars/jquery/1.11.1/jquery.min.js"
+	th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+
+<style>
+body {
+	padding-top: 70px;
+	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+</style>
 </head>
+
 <body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="/customers">Client</a></li>
+					<li><a href="/animal">Animal</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
 	<h1>Form</h1>
     <form action="#" th:action="@{/customer/new}" th:object="${customer}" method="post">
     	<p>Name: <input type="text" th:field="*{name}" /></p>
