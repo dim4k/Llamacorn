@@ -42,7 +42,7 @@ public class CustomerController {
 	    HttpHeaders headers = new HttpHeaders();
 	    headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 	     
-	    Animal result = restTemplate.getForObject(uri, Animal.class);
+	    Animal result =  restTemplate.getForObject(uri, Animal.class);
 	    
 	    System.out.println(result);
 	    	    
