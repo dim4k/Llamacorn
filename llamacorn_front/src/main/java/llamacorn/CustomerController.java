@@ -2,6 +2,7 @@ package llamacorn;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Set;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -32,6 +33,22 @@ public class CustomerController {
 	    return result;
 	}
 	
+	private static Animal getCustomerAnimalbyId(long id)
+	{
+	    final String uri = "http://localhost:8080/customers/"+id+"/animals";
+	     
+	    RestTemplate restTemplate = new RestTemplate();
+	     
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	     
+	    Animal result = restTemplate.getForObject(uri, Animal.class);
+	    
+	    System.out.println(result);
+	    	    
+	    return result;
+	}
+	
 	private static ArrayList<Customer> getCustomers()
 	{
 	    final String uri = "http://localhost:8080/customers";
@@ -54,7 +71,10 @@ public class CustomerController {
     public String customer(@PathVariable long id, Model model){
     	Customer customer = CustomerController.getCustomerbyId(id);
     	
+    	Animal animal = CustomerController.getCustomerAnimalbyId(id);
+    	
         model.addAttribute("customer", customer.toString());
+        model.addAttribute("animal", animal.toString());
         model.addAttribute("idcustomer", id);
         return "customer";
     }
