@@ -1,6 +1,7 @@
 # Llamacorn
 
-A Java Spring Project
+Llamacorn is composed of two small Java Spring project.
+A server communicating with a web app over REST.
 
 Version
 ----
